@@ -1,0 +1,28 @@
+```
+import model sm    # This is the model FeynRules model file developed for these studies
+generate a a > ta+ ta-    # tell madgraph you want to generate gamma gamma -> tau+ tau- events. Order of tau+/tau- is irrelevant
+output sample    # create the directory where events are produced. Replace "sample" with desired directory name
+
+launch sample    # start event generation (very important!!!)
+
+set nevents 50000    # number of events in one MG5 "run". 50K is a good upper limit for one file
+set iseed 100    # Set the random number seed for this run. Each run needs to have a different random seed!
+set lpp1 2    # switch beam1 mode to "peripheral" type
+set lpp2 2    # switch beam2 mode to "peripheral" type
+set ebeam1 522080    # set beam1 energy to 208*2.51 TeV = 522080 GeV
+set ebeam2 522080    # set beam2 energy to 208*2.51 TeV = 522080 GeV
+set pdlabel1 chff    # set the nuclear charge model of beam1 Pb ions to Fermi model (more correct than edff)
+set pdlabel2 chff    # set the nuclear charge model of beam2 Pb ions to Fermi model (more correct than edff)
+set nb_proton1 82   # let gamma-UPC know you are colliding (208)Pb(82) ions in beam1
+set nb_proton2 82   # let gamma-UPC know you are colliding (208)Pb(82) ions in beam2
+set nb_neutron1 126   # let gamma-UPC know you are colliding (208)Pb(82) ions in beam1
+set nb_neutron2 126   # let gamma-UPC know you are colliding (208)Pb(82) ions in beam2
+set ptl 2.0    # set minimum pT of final state leptons
+set ptlmax 100.0    # set maximum pT of final state leptons
+set etal 9.0    # set maximum abs(eta) of final state leptons
+set drll 0.0    # set minimum delta(R) separation between final state leptons
+set mmll 4.0    # set minimum invariant mass of final state lepton pairs
+set mmllmax 200.0    # set maximum invariant mass of final state lepton pairs
+set aewm1 137.036    # set the 1/alpha_EM value used for event generation. gamma-UPC doesn't do alpha_EM evolution so this is just a multiplicative coupling that may be scaled later in the event weights if needed. This particular value is the alpha_EM(0) value, also used in Starlight.
+done  # finish up the settings
+```
