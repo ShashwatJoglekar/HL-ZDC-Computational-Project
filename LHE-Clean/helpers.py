@@ -160,7 +160,7 @@ def write_header(outfile, init_block_merged):
 	]
 
 	# write the lines
-	for line in output_header[::-1]: os.system(r"sed -i '1s/^/"+line+r"/' "+str(outfile))
+	for line in output_header[::-1]: os.system(r"sed -i '' '1s/^/"+line+r"/' "+str(outfile))
 
 def write_tail(outputFile):
 	"""
@@ -217,7 +217,7 @@ def event_looper(args, file_names):
 				weight = temp_event[1].split()[2]
 				
 				# Now we have the event to do all the work with!
-				event = Event(temp_event[2:6], weight)
+				event = Event(temp_event[3:7], weight)
 
 				# if no reweighting has been requested, then we can directly go to writing output LHE file
 				if not args.reweight:
